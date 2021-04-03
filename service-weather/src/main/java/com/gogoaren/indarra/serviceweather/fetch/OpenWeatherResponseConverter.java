@@ -1,15 +1,20 @@
 package com.gogoaren.indarra.serviceweather.fetch;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.gogoaren.indarra.serviceweather.data.weather.WeatherEntity;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @AllArgsConstructor
 public class OpenWeatherResponseConverter {
 
+    public WeatherEntity converter(OpenWeatherResponse openWeatherResponse) {
+        return WeatherEntity.builder().city(openWeatherResponse.getName()).
+                temp(converterTemperature(openWeatherResponse.getMain().getTemp()))
+                .build();
+    }
 
+    private float converterTemperature(float kelvineTemp) {
+        return kelvineTemp - 270;
+
+    }
 
 }
