@@ -2,6 +2,7 @@ package com.gogoaren.indarra.serviceweather.fetch;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.Duration;
@@ -22,11 +23,12 @@ public class OpenWeatherFetcher {
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .bodyToMono(OpenWeatherResponse.class)
+                .share()
                 .block(Duration.ofSeconds(20));
     }
 
 
-    /* nie po city a po wsp geograicznych*/
+
     public OpenWeatherResponse fetchWeatherByCityLocation(double lat, double lng) {
 
         return client.get()
@@ -38,7 +40,7 @@ public class OpenWeatherFetcher {
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .bodyToMono(OpenWeatherResponse.class)
-                .block(Duration.ofSeconds(2));
+                .block(Duration.ofSeconds(20));
     }
 
 }
