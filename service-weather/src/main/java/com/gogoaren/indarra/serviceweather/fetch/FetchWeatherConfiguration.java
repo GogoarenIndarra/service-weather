@@ -26,5 +26,8 @@ public class FetchWeatherConfiguration {
         return new OpenWeatherFetcher(client, openWeatherProperties.getKey());
     }
 
-
+    @Bean
+    OpenWeatherResponseConverter openWeatherResponseConverter() {
+        return new OpenWeatherResponseConverter();
+    }
 }
