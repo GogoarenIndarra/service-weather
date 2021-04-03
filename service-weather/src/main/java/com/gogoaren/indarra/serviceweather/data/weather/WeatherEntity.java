@@ -23,10 +23,10 @@ public class WeatherEntity implements Serializable {
     private static final long serialVersionUID = 345L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID uuid;
     private String city;
     private Instant created;
-    private Float temp;
+    private Float temperature;
     private Float humidity;
+
 }

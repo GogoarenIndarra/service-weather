@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 public class WeatherController {
 
     private OpenWeatherFetcher openWeatherFetcher;
-
     private OpenWeatherResponseConverter converter;
     private WeatherEntityService weatherEntityService;
 
@@ -33,35 +32,4 @@ public class WeatherController {
         return weatherEntity;
     }
 
-//    @GetMapping(value = "/{}")
-//    public OpenWeatherResponse getWeatherByCity(@PathVariable String city){
-//        return openWeatherFetcher.fetchWeatherByCityName(city);
-//    }
-
-
-//
-//    @GetMapping
-//    public List<Vehicle> getVehicles(){
-//        return vehicleService.findAllVehicles();
-//    }
-//
-//    @GetMapping(value = "/filter")
-//    public List<Vehicle> getVehiclesByColor(@RequestParam String color){
-//        return vehicleService.findAllVehiclesByColor(color);
-//    }
-//
-//    @GetMapping(value = "/{id}")
-//    public Vehicle getVehicleById(@PathVariable Long id){
-//        return vehicleService.findVehicleById(id);
-//    }
-//
-//    @PostMapping
-//    public Vehicle saveVehicle(@RequestBody Vehicle vehicle){
-//        return vehicleService.saveVehicle(vehicle);
-//    }
-//
-//    public @PostMapping(value = "/save-all")
-//    List<Vehicle> saveVehicleList(@RequestBody List<Vehicle> vehicleList){
-//        return vehicleService.saveVehicleList(vehicleList);
-//    }
 }
