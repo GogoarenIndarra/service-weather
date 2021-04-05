@@ -16,6 +16,7 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -32,5 +33,13 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+### added ###
+*.idea/libraries/*
+
+
+### added ###
+*.idea/libraries/*
 
 !**.Maven_*

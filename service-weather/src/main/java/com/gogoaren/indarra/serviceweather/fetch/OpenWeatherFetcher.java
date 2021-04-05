@@ -28,7 +28,6 @@ public class OpenWeatherFetcher {
     }
 
 
-
     public OpenWeatherResponse fetchWeatherByCityLocation(double lat, double lng) {
 
         return client.get()
