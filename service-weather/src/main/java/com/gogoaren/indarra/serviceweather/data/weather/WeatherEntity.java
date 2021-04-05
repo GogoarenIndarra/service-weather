@@ -1,5 +1,6 @@
 package com.gogoaren.indarra.serviceweather.data.weather;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
