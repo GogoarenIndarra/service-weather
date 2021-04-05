@@ -1,22 +1,16 @@
 package com.gogoaren.indarra.serviceweather.fetch;
 
-import com.gogoaren.indarra.serviceweather.data.weather.WeatherEntity;
-
-import java.time.Instant;
-
-
 public class OpenWeatherResponseConverter {
 
-    public WeatherEntity convert(OpenWeatherResponse openWeatherResponse) {
-        return WeatherEntity.builder().city(openWeatherResponse.getName()).
+    public Weather convert(OpenWeatherResponse openWeatherResponse) {
+        return Weather.builder().city(openWeatherResponse.getName()).
                 temperature(convertTemperature(openWeatherResponse.getMain().getTemp()))
-                .created(Instant.now())
+                .humidity(openWeatherResponse.getMain().getHumidity())
                 .build();
     }
 
-    private float convertTemperature(float kelvineTemp) {
-        return kelvineTemp - 270;
-
+    private double convertTemperature(double kelvineTemp) {
+        return kelvineTemp - 273.15;
     }
 
 }

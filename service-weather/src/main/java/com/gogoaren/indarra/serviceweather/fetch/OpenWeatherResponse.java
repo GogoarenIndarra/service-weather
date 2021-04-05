@@ -51,7 +51,7 @@ public class OpenWeatherResponse {
     @NoArgsConstructor
     public static class Wind {
         @JsonProperty("speed")
-        private Float speed;
+        private double speed;
         @JsonProperty("deg")
         private Integer deg;
 
@@ -65,7 +65,7 @@ public class OpenWeatherResponse {
         @JsonProperty("id")
         private Integer id;
         @JsonProperty("message")
-        private Float message;
+        private double message;
         @JsonProperty("country")
         private String country;
         @JsonProperty("sunrise")
@@ -78,17 +78,16 @@ public class OpenWeatherResponse {
     @NoArgsConstructor
     public static class Main {
         @JsonProperty("temp")
-        private Float temp;
+        private double temp;
         @JsonProperty("feels_like")
-        private Float feelsLike;
+        private double feelsLike;
         @JsonProperty("temp_min")
-        private Float tempMin;
+        private double tempMin;
         @JsonProperty("temp_max")
-        private Float tempMax;
+        private double tempMax;
         @JsonProperty("pressure")
         private Integer pressure;
         @JsonProperty("humidity")
         private Integer humidity;
-
     }
 }

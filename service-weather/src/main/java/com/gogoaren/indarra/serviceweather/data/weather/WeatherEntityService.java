@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.io.Serializable;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -16,9 +17,8 @@ public class WeatherEntityService implements Serializable {
         weatherEntityRepository.save(weatherEntity);
     }
 
-    public WeatherEntity findLatestEncryptedPassword(String cityName) throws EntityNotFoundException {
-        return weatherEntityRepository.findLatestCityWeather(cityName)
-                .orElseThrow(() -> new EntityNotFoundException("city: {} do not found"));
+    public  Optional<WeatherEntity> findLatestStoredTemperature(String cityName) throws EntityNotFoundException {
+        return weatherEntityRepository.findLatestCityWeather(cityName);
     }
 
 }

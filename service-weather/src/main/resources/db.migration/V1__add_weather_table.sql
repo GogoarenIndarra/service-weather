@@ -1,10 +1,9 @@
-
 DROP TABLE IF EXISTS weather;
 
 CREATE TABLE weather (
 uuid  VARCHAR(250) NOT NULL,
 city VARCHAR(250) NOT NULL,
-created DATE NOT NULL,
-temperature LONG ,
-humidity LONG
+created TIMESTAMP NOT NULL,
+temperature NUMERIC(19,2),
+humidity NUMERIC(19,2)
 );
