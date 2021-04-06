@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -19,4 +20,13 @@ interface WeatherEntityRepository extends CrudRepository<WeatherEntity, UUID> {
     Optional<WeatherEntity> findLatestCityWeather(
             @Param("cityName") String cityName
     );
+
+    @Query(value = "SELECT *  FROM weather w " +
+            "ORDER BY w.temperature DESC LIMIT :limit",
+            nativeQuery = true)
+    List<WeatherEntity> findTopWarmestCity(
+            @Param("limit") int numberOfRecords
+    );
+
+
 }

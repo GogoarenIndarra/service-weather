@@ -7,5 +7,5 @@ import java.util.Map;
 public interface WeatherStatisticService {
 
     public Map<String, BigDecimal> findWarmestCity();
-    public List<Map<String, BigDecimal>> findTopTenWarmestCity();
+    public Map<String, BigDecimal> findTopTenWarmestCity();
 }
