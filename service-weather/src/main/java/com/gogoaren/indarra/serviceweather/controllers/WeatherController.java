@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Optional;
 import java.util.UUID;
@@ -40,7 +41,6 @@ public class WeatherController {
             log.info("weather from db: " + optionalWeatherEntity);
 
             WeatherEntity weatherEntity = optionalWeatherEntity.get();
-//            var weatherEntity = optionalWeatherEntity.get();
             return Weather.builder()
                     .humidity(weatherEntity.getHumidity())
                     .city(weatherEntity.getCity())
@@ -61,11 +61,11 @@ public class WeatherController {
                 .city(weather.getCity())
                 .humidity(weather.getHumidity())
                 .temperature(weather.getTemperature())
+                .wind(weather.getWind())
                 .build();
         log.info("save weather entity: " + weatherEntity.toString());
         weatherEntityService.saveEntity(weatherEntity);
         return weather;
     }
-
 
 }
