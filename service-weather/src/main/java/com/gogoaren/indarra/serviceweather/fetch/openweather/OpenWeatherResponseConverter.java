@@ -1,4 +1,6 @@
-package com.gogoaren.indarra.serviceweather.fetch;
+package com.gogoaren.indarra.serviceweather.fetch.openweather;
+
+import com.gogoaren.indarra.serviceweather.fetch.Weather;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

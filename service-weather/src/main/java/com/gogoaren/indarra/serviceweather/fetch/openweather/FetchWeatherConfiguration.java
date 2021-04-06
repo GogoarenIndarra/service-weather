@@ -1,4 +1,4 @@
-package com.gogoaren.indarra.serviceweather.fetch;
+package com.gogoaren.indarra.serviceweather.fetch.openweather;
 
 
 import lombok.AllArgsConstructor;
