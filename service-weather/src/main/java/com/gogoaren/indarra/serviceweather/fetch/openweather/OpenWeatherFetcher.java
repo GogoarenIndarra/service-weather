@@ -1,8 +1,7 @@
-package com.gogoaren.indarra.serviceweather.fetch;
+package com.gogoaren.indarra.serviceweather.fetch.openweather;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.Duration;
