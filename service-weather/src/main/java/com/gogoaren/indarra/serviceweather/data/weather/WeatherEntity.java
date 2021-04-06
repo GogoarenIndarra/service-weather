@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 
@@ -26,7 +27,7 @@ public class WeatherEntity implements Serializable {
     private UUID uuid;
     private Instant created;
     private String city;
-    private double temperature;
+    private BigDecimal temperature;
     private double humidity;
     private double wind;
 
