@@ -1,16 +1,15 @@
 package com.gogoaren.indarra.serviceweather.controllers;
 
 
+import com.gogoaren.indarra.serviceweather.data.weather.WeatherEntity;
+import com.gogoaren.indarra.serviceweather.data.weather.WeatherEntityService;
 import com.gogoaren.indarra.serviceweather.fetch.Weather;
 import com.gogoaren.indarra.serviceweather.fetch.WeatherService;
 import com.gogoaren.indarra.serviceweather.fetch.WeatherStatisticService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -23,6 +22,7 @@ public class WeatherController {
 
     WeatherService weatherService;
     WeatherStatisticService weatherStatisticService;
+    WeatherEntityService weatherEntityService;
 
     @GetMapping(value = "/{city}")
     public Weather getWeatherByCity(@PathVariable String city) {
@@ -37,6 +37,11 @@ public class WeatherController {
     @GetMapping(value = "/topCity")
     public Map<String, BigDecimal> findWarmestCity() {
         return weatherStatisticService.findWarmestCity();
+    }
+
+    @PostMapping(value =  "/saveCity")
+    public void saveEntity(@RequestBody Weather weather) {
+        weatherEntityService.saveEntity(new WeatherEntity(weather));
     }
 }
 
