@@ -6,6 +6,7 @@ import com.gogoaren.indarra.serviceweather.fetch.openweather.OpenWeatherFetcher;
 import com.gogoaren.indarra.serviceweather.fetch.openweather.OpenWeatherResponse;
 import com.gogoaren.indarra.serviceweather.fetch.openweather.OpenWeatherResponseConverter;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class WeatherServiceImpl implements WeatherService {
 
     private OpenWeatherFetcher openWeatherFetcher;
@@ -34,11 +36,16 @@ public class WeatherServiceImpl implements WeatherService {
         Optional<WeatherEntity> optionalWeatherEntity =
                 weatherEntityService.findLatestStoredTemperature(city);
         if (optionalWeatherEntity.isPresent() && isWeatherActual(optionalWeatherEntity.get())) {
+
+            log.info("weather from db: " + optionalWeatherEntity);
             return getWeather(optionalWeatherEntity);
         }
+        log.info("fetching weather for: " + city);
         OpenWeatherResponse openWeatherResponse = openWeatherFetcher.fetchWeatherByCityName(city);
+        log.info("open weather response: " + openWeatherResponse);
         Weather weather = converter.convert(openWeatherResponse);
         WeatherEntity weatherEntity = getWeatherEntity(weather);
+        log.info("save weather entity: " + weatherEntity.toString());
         weatherEntityService.saveEntity(weatherEntity);
         return weather;
     }

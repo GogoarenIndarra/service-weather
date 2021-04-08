@@ -1,6 +1,7 @@
 package com.gogoaren.indarra.serviceweather.data.weather;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +12,13 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class WeatherEntityService implements Serializable {
 
     private final WeatherEntityRepository weatherEntityRepository;
 
     public void saveEntity(final WeatherEntity weatherEntity) {
+        log.info("weather from db: " + weatherEntity);
         weatherEntityRepository.save(weatherEntity);
     }
 

@@ -33,8 +33,8 @@ public class WeatherEntity implements Serializable {
     private double wind;
 
     public WeatherEntity(Weather weather) {
-        this.uuid = uuid;
-        this.created = created;
+        this.uuid = UUID.randomUUID();
+        this.created = Instant.now();
         this.city= weather.getCity();
         this.temperature = weather.getTemperature();
         this.humidity = weather.getHumidity();

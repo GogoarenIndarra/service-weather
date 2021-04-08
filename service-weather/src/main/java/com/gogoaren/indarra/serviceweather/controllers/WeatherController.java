@@ -9,6 +9,7 @@ import com.gogoaren.indarra.serviceweather.fetch.WeatherStatisticService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -43,6 +44,8 @@ public class WeatherController {
     public void saveEntity(@RequestBody Weather weather) {
         weatherEntityService.saveEntity(new WeatherEntity(weather));
     }
+
+
 }
 
 

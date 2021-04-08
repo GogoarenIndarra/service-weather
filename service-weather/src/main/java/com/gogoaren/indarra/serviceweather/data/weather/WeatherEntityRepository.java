@@ -21,7 +21,7 @@ interface WeatherEntityRepository extends CrudRepository<WeatherEntity, UUID> {
             @Param("cityName") String cityName
     );
 
-    @Query(value = "SELECT *  FROM weather w " +
+    @Query(value = "SELECT DISTINCT *  FROM weather w " +
             "ORDER BY w.temperature DESC LIMIT :limit",
             nativeQuery = true)
     List<WeatherEntity> findTopWarmestCity(
