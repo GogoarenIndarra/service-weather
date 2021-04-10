@@ -13,6 +13,7 @@ public class OpenWeatherResponseConverter {
                 .temperature(convertTemperature(openWeatherResponse.getMain().getTemp()))
                 .humidity(openWeatherResponse.getMain().getHumidity())
                 .wind(openWeatherResponse.getWind().getSpeed())
+                .country(openWeatherResponse.getSys().getCountry())
                 .build();
     }
 

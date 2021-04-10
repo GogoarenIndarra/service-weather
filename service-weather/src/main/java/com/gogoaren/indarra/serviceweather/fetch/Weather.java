@@ -13,5 +13,6 @@ public class Weather {
     private BigDecimal temperature;
     private double humidity;
     private double wind;
+    private String country;
 
 }

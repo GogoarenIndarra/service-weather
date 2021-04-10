@@ -5,6 +5,7 @@ import com.gogoaren.indarra.serviceweather.data.weather.WeatherEntityService;
 import com.gogoaren.indarra.serviceweather.fetch.openweather.OpenWeatherFetcher;
 import com.gogoaren.indarra.serviceweather.fetch.openweather.OpenWeatherResponse;
 import com.gogoaren.indarra.serviceweather.fetch.openweather.OpenWeatherResponseConverter;
+import com.gogoaren.indarra.serviceweather.utils.CastomStringConverter;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ public class WeatherServiceImpl implements WeatherService {
     }
     @Override
     public Weather getWeatherByCity(String city) {
+
         Optional<WeatherEntity> optionalWeatherEntity =
                 weatherEntityService.findLatestStoredTemperature(city);
         if (optionalWeatherEntity.isPresent() && isWeatherActual(optionalWeatherEntity.get())) {
@@ -59,6 +61,7 @@ public class WeatherServiceImpl implements WeatherService {
                 .humidity(weather.getHumidity())
                 .temperature(weather.getTemperature())
                 .wind(weather.getWind())
+                .country(weather.getCountry())
                 .build();
     }
 
@@ -70,6 +73,7 @@ public class WeatherServiceImpl implements WeatherService {
                 .city(weatherEntity.getCity())
                 .temperature(weatherEntity.getTemperature())
                 .wind(weatherEntity.getWind())
+                .country(weatherEntity.getCountry())
                 .build();
     }
 
