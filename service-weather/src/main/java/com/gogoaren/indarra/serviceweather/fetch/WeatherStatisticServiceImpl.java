@@ -29,4 +29,19 @@ public class WeatherStatisticServiceImpl implements WeatherStatisticService {
         return weatherEntityService.findTopWarmestCity(10).stream()
                 .collect(Collectors.toMap(WeatherEntity::getCity, WeatherEntity::getTemperature));
     }
+
+    @Override
+    public Map<String, List<String>> findCitiesFromCountry(String country) {
+        return null;
+    }
+
+    @Override
+    public Map<String, BigDecimal> findMaxTemperatureForAllCities() {
+        return null;
+    }
+
+    @Override
+    public List<String> findCitiesWithTempTenDegreeOrHigher() {
+        return null;
+    }
 }

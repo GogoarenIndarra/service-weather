@@ -28,5 +28,8 @@ interface WeatherEntityRepository extends CrudRepository<WeatherEntity, UUID> {
             @Param("limit") int numberOfRecords
     );
 
+    @Query(value = "SELECT * FROM weather",
+            nativeQuery = true)
+    List<WeatherEntity> selectAllForStreamPractice();
 
 }
