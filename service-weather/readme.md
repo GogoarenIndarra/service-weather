@@ -16,3 +16,4 @@ stream: https://www.baeldung.com/java-list-to-map
 scheduled java: https://www.baeldung.com/spring-scheduled-tasks  
 crone generator: https://www.freeformatter.com/cron-expression-generator-quartz.html  
 kafka for spring: https://www.baeldung.com/spring-kafka  
+starting kafa on windows https://zablo.net/blog/post/setup-apache-kafka-in-docker-on-windows/  

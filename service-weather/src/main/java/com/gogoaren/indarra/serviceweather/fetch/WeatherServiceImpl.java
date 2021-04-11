@@ -5,6 +5,7 @@ import com.gogoaren.indarra.serviceweather.data.weather.WeatherEntityService;
 import com.gogoaren.indarra.serviceweather.fetch.openweather.OpenWeatherFetcher;
 import com.gogoaren.indarra.serviceweather.fetch.openweather.OpenWeatherResponse;
 import com.gogoaren.indarra.serviceweather.fetch.openweather.OpenWeatherResponseConverter;
+import com.gogoaren.indarra.serviceweather.kafka.KafkaMessageSender;
 import com.gogoaren.indarra.serviceweather.utils.CastomStringConverter;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,10 +27,11 @@ public class WeatherServiceImpl implements WeatherService {
     private final OpenWeatherFetcher openWeatherFetcher;
     private final OpenWeatherResponseConverter converter;
     private final WeatherEntityService weatherEntityService;
-    public Long timeForWeatherExpire;
+    private  final KafkaMessageSender kafkaMessageSender;
+    public static Long timeForWeatherExpire;
 
     @Autowired
-    public void setTimeForWeatherExpire(@Value("weather.expiration.time.ms") Long value) {
+    public void setTimeForWeatherExpire(@Value("${weather.expiration.time.ms}") Long value) {
         this.timeForWeatherExpire=value;
     }
 
@@ -50,6 +52,7 @@ public class WeatherServiceImpl implements WeatherService {
         WeatherEntity weatherEntity = getWeatherEntity(weather);
         log.info("save weather entity: " + weatherEntity.toString());
         weatherEntityService.saveEntity(weatherEntity);
+        kafkaMessageSender.sendMessage(weather);
         return weather;
     }
 
