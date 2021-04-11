@@ -15,13 +15,6 @@ public class KafkaMessageSender {
     final String topicName;
     private KafkaTemplate<String, Weather> kafkaTemplate;
 
-
-//    public void sendMessage(Weather weather) {
-//        log.info("Weather msg send: " + weather + " topic name: " + topicName);
-//        kafkaTemplate.send(topicName, weather).addCallback();
-//    }
-
-
     public void sendMessage(Weather weather) {
 
         log.info("Weather msg send: " + weather + " topic name: " + topicName);

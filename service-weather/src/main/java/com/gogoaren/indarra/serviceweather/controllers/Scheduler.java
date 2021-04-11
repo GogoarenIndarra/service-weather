@@ -30,7 +30,7 @@ public class Scheduler {
     }
 
 
-//    @Scheduled(cron = "${weather.schedule.cron.london}")
+    //    @Scheduled(cron = "${weather.schedule.cron.london}")
     public void uploadLondonWeatherScheduleTask() {
         uploadWeather("London");
     }

@@ -32,7 +32,7 @@ public class KafkaProducerConfig {
     public ProducerFactory<String, Weather> weatherProducerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-//        configProps.put(ProducerConfig., bootstrapAddress);
+        configProps.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         return new DefaultKafkaProducerFactory<>(configProps);
