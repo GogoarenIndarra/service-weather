@@ -1,9 +1,17 @@
 # service description
+service provide weather for city from internal database if data are fresh otherwise fetch it from external service:
+api.openweathermap.
+
+Service has REST controllers for getting weather, statistic, and  save records.
+
+
+Missing features:
+Deleting records (REST DELETE)
+Kafka messaging
 
 
 # learning resources
 
-generating class based on JSON: https://www.jsonschema2pojo.org/  
 stream: https://www.baeldung.com/java-list-to-map  
 scheduled java: https://www.baeldung.com/spring-scheduled-tasks  
 crone generator: https://www.freeformatter.com/cron-expression-generator-quartz.html  

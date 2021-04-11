@@ -23,15 +23,16 @@ import java.util.UUID;
 @Slf4j
 public class WeatherServiceImpl implements WeatherService {
 
-    private OpenWeatherFetcher openWeatherFetcher;
-    private OpenWeatherResponseConverter converter;
-    private WeatherEntityService weatherEntityService;
-    public static Long timeForWeatherExpire;
+    private final OpenWeatherFetcher openWeatherFetcher;
+    private final OpenWeatherResponseConverter converter;
+    private final WeatherEntityService weatherEntityService;
+    public Long timeForWeatherExpire;
 
     @Autowired
-    public void setTimeForWeatherExpire(@Value("${weather.expiration.time.ms}") Long value) {
+    public void setTimeForWeatherExpire(@Value("weather.expiration.time.ms") Long value) {
         this.timeForWeatherExpire=value;
     }
+
     @Override
     public Weather getWeatherByCity(String city) {
 
@@ -84,9 +85,6 @@ public class WeatherServiceImpl implements WeatherService {
         long ct = Instant.now().toEpochMilli();
         long df = Math.abs(ct - time);
 
-        if (df < timeForWeatherExpire) {
-            return true;
-        }
-        return false;
+        return df < timeForWeatherExpire;
     }
 }
