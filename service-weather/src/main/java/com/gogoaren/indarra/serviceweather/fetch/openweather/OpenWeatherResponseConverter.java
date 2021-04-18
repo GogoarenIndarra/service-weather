@@ -1,6 +1,7 @@
 package com.gogoaren.indarra.serviceweather.fetch.openweather;
 
 import com.gogoaren.indarra.serviceweather.fetch.Weather;
+import com.gogoaren.indarra.serviceweather.utils.CountryCodeService;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -13,7 +14,8 @@ public class OpenWeatherResponseConverter {
                 .temperature(convertTemperature(openWeatherResponse.getMain().getTemp()))
                 .humidity(openWeatherResponse.getMain().getHumidity())
                 .wind(openWeatherResponse.getWind().getSpeed())
-                .country(openWeatherResponse.getSys().getCountry())
+                .countryCode(openWeatherResponse.getSys().getCountry())
+                .country(CountryCodeService.iso2CountryCodeToCountryName(openWeatherResponse.getSys().getCountry()))
                 .build();
     }
 

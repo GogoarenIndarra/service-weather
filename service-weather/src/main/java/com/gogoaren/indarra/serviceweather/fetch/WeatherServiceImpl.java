@@ -6,7 +6,6 @@ import com.gogoaren.indarra.serviceweather.fetch.openweather.OpenWeatherFetcher;
 import com.gogoaren.indarra.serviceweather.fetch.openweather.OpenWeatherResponse;
 import com.gogoaren.indarra.serviceweather.fetch.openweather.OpenWeatherResponseConverter;
 import com.gogoaren.indarra.serviceweather.kafka.KafkaMessageSender;
-import com.gogoaren.indarra.serviceweather.utils.CastomStringConverter;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 

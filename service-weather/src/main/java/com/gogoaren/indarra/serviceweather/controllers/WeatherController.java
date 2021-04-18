@@ -6,7 +6,7 @@ import com.gogoaren.indarra.serviceweather.data.weather.WeatherEntityService;
 import com.gogoaren.indarra.serviceweather.fetch.Weather;
 import com.gogoaren.indarra.serviceweather.fetch.WeatherService;
 import com.gogoaren.indarra.serviceweather.fetch.WeatherStatisticService;
-import com.gogoaren.indarra.serviceweather.utils.CastomStringConverter;
+import com.gogoaren.indarra.serviceweather.utils.CustomStringConverter;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -27,7 +27,7 @@ public class WeatherController {
 
     @GetMapping(value = "/{city}")
     public Weather getWeatherByCity(@PathVariable String city) {
-        return weatherService.getWeatherByCity(CastomStringConverter.stringConvertforCity(city));
+        return weatherService.getWeatherByCity(CustomStringConverter.stringConverterCity(city));
     }
 
     @GetMapping(value = "/topTen")

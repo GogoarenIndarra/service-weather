@@ -17,12 +17,13 @@ import static org.mockito.Mockito.when;
 public class WeatherStatisticServiceImplTest {
 
 
-    //this not work: why?
+    /* this not work: why? */
 //    @Mock
 //    private WeatherEntityService weatherEntityService;
 //    @InjectMocks
 //    private final WeatherStatisticServiceImpl weatherStatisticService =
 //            new WeatherStatisticServiceImpl(weatherEntityService);
+
 
     private WeatherEntityService weatherEntityService;
     private WeatherStatisticServiceImpl weatherStatisticService;
@@ -54,7 +55,7 @@ public class WeatherStatisticServiceImplTest {
     public void shouldReturnTenSizeMapWhenTenTopWarmestCitiesProvided() {
         //given
         final String city = "Rome";
-        var listOfCities = IntStream.range(1, 11).mapToObj(i -> TestUtils.creatWeatherEntity(city+i, new BigDecimal(22+i)))
+        var listOfCities = IntStream.range(1, 11).mapToObj(i -> TestUtils.creatWeatherEntity(city + i, new BigDecimal(22 + i)))
                 .collect(Collectors.toList());
 
         when(weatherEntityService.findTopWarmestCity(10)).thenReturn(listOfCities);

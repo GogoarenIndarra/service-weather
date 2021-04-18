@@ -18,7 +18,7 @@ import java.util.Map;
 @Configuration
 public class KafkaProducerConfig {
 
-    @Value(value = "${kafka.bootstrapAddress}")
+    @Value(value = "${kafka.bootstrap.Address}")
     private String bootstrapAddress;
     @Value(value = "${weather.topic.name}")
     private String weatherTopic;

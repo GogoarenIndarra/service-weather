@@ -2,9 +2,9 @@ package com.gogoaren.indarra.serviceweather.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class CastomStringConverter {
+public class CustomStringConverter {
 
-    public static String stringConvertforCity(String cityName) {
+    public static String stringConverterCity(String cityName) {
         return StringUtils.capitalize(StringUtils.lowerCase(cityName));
 
     }

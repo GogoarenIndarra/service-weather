@@ -1,4 +1,4 @@
-package com.gogoaren.indarra.serviceweather.controllers;
+package com.gogoaren.indarra.serviceweather.Scheduler;
 
 import com.gogoaren.indarra.serviceweather.fetch.WeatherService;
 import lombok.extern.slf4j.Slf4j;
@@ -21,8 +21,11 @@ public class Scheduler {
     @Scheduled(fixedDelayString = "${weather.schedule.update.ms}")
     public void uploadWeatherScheduleTask() {
 
-        List<String> cityNamesB = Arrays.asList("London", "Warsaw", "Berlin",
-                "Alicante", "Albuquerque", "Moscow", "Jijona", "Novomoskovsk", "Gebze", "Briançon");
+        List<String> cityNamesB = Arrays.asList(
+                "London", "Warsaw", "Berlin", "Alicante", "Albuquerque", "Moscow",
+                "Jijona", "Novomoskovsk", "Gebze", "Briançon", "Oban", "Santiago de Cali",
+                "Port Montt", "Cape Town");
+
         Random rand = new Random();
         String randomElement = cityNamesB.get(rand.nextInt(cityNamesB.size()));
         var weather = weatherService.getWeatherByCity(randomElement);
@@ -30,7 +33,7 @@ public class Scheduler {
     }
 
 
-    //    @Scheduled(cron = "${weather.schedule.cron.london}")
+    @Scheduled(cron = "${weather.schedule.cron.london.ms}")
     public void uploadLondonWeatherScheduleTask() {
         uploadWeather("London");
     }

@@ -1,3 +1,2 @@
 ALTER TABLE weather
 ADD COLUMN wind NUMERIC (19,2)
---ADD COLUMN country VARCHAR(250)

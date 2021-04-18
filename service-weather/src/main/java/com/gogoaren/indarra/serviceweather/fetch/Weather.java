@@ -14,5 +14,5 @@ public class Weather {
     private double humidity;
     private double wind;
     private String country;
-
+    private String countryCode;
 }
