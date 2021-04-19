@@ -33,17 +33,3 @@ class CustomStringConverterTest {
 
 
 }
-
-    /* Test with input form method */
-//    @ParameterizedTest
-//    @MethodSource("input")
-//    public void reverseStringV2_ShouldReturnTrue(String inputStr, String outputStr) {
-//        assertEquals(outputStr, reverseString.reverseStringStreams(inputStr));
-//    }
-//    private static Stream input(){
-//        return Stream.of(
-//                Arguments.of("aaax", "xaaa"),
-//                Arguments.of("bbbx", "xbbb"),
-//                Arguments.of("cccx", "xccc")
-//        );
-//    }

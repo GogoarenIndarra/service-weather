@@ -30,4 +30,8 @@ public class WeatherEntityService implements Serializable {
         return weatherEntityRepository.findTopWarmestCity(numberOfRecords);
     }
 
+    public List<WeatherEntity> selectAllForStreamPractice(){
+        return weatherEntityRepository.selectAllForStreamPractice();
+    }
+
 }
