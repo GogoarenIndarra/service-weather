@@ -64,6 +64,7 @@ public class WeatherServiceImpl implements WeatherService {
                 .temperature(weather.getTemperature())
                 .wind(weather.getWind())
                 .country(weather.getCountry())
+                .countryCode(weather.getCountryCode())
                 .build();
     }
 
@@ -76,6 +77,7 @@ public class WeatherServiceImpl implements WeatherService {
                 .temperature(weatherEntity.getTemperature())
                 .wind(weatherEntity.getWind())
                 .country(weatherEntity.getCountry())
+                .countryCode(weatherEntity.getCountryCode())
                 .build();
     }
 

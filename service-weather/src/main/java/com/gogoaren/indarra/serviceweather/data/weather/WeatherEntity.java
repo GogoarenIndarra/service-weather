@@ -34,7 +34,8 @@ public class WeatherEntity implements Serializable {
     private String country;
     private String countryCode;
 
-    public WeatherEntity(Weather weather) {
+
+        public WeatherEntity(Weather weather) {
         this.uuid = UUID.randomUUID();
         this.created = Instant.now();
         this.city= weather.getCity();
@@ -42,7 +43,7 @@ public class WeatherEntity implements Serializable {
         this.humidity = weather.getHumidity();
         this.wind = weather.getWind();
         this.country = weather.getCountry();
-        this.country = weather.getCountryCode();
+        this.countryCode = weather.getCountryCode();
     }
 
 

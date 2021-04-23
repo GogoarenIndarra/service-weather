@@ -13,7 +13,9 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @RequestMapping(produces = {MediaType.APPLICATION_JSON_VALUE}, path = "/api/weather")
 @RestController
@@ -30,14 +32,14 @@ public class WeatherController {
         return weatherService.getWeatherByCity(CustomStringConverter.stringConverterCity(city));
     }
 
-    @GetMapping(value = "/topTen")
-    public Map<String, BigDecimal> findTopTenWarmestCity() {
-        return weatherStatisticService.findTopTenWarmestCity();
-    }
-
     @GetMapping(value = "/topCity")
     public Map<String, BigDecimal> findWarmestCity() {
         return weatherStatisticService.findWarmestCity();
+    }
+
+    @GetMapping(value = "/topTen")
+    public Map<String, BigDecimal> findTopTenWarmestCity() {
+        return weatherStatisticService.findTopTenWarmestCity();
     }
 
     @PostMapping(value = "/saveCity")
@@ -45,9 +47,19 @@ public class WeatherController {
         weatherEntityService.saveEntity(new WeatherEntity(weather));
     }
 
-    @GetMapping(value = "/statistic")
-    public void getStatistic() {
-        return;
+    @GetMapping(value = "/temperatureOverTenDegree")
+    public Set<String> getStatisticForTemperature() {
+        return weatherStatisticService.findCitiesWithTempTenDegreeOrHigher();
+    }
+
+    @GetMapping(value = "/statistic/{countryCode}")
+    public Map<String, List<String>> getStatisticForCountry(@PathVariable String countryCode) {
+        return weatherStatisticService.findCitiesFromCountry(countryCode);
+    }
+
+    @GetMapping(value = "/getCities")
+    public Map<String, List<WeatherEntity>> getCitiesFromCountry() {
+        return weatherStatisticService.findCitiesFromAllCountries();
     }
 
 

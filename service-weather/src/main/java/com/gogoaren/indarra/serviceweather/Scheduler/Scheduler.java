@@ -22,9 +22,10 @@ public class Scheduler {
     public void uploadWeatherScheduleTask() {
 
         List<String> cityNamesB = Arrays.asList(
-                "London", "Warsaw", "Berlin", "Alicante", "Albuquerque", "Moscow",
-                "Jijona", "Novomoskovsk", "Gebze", "Briançon", "Oban", "Santiago de Cali",
-                "Port Montt", "Cape Town");
+                "San Sebastian", "Warsaw", "Shanghai", "Alicante", "Albuquerque", "Moscow",
+                "Jijona", "Novomoskovsk", "Gebze", "Briançon", "Jeddah", "Santiago de Cali",
+                "Port Montt", "Cape Town", "Bilbao", "Rostov", "Cairo", "Lagos", "Gyöngyös",
+                "Provincia di Pescara", "Euskirchen");
 
         Random rand = new Random();
         String randomElement = cityNamesB.get(rand.nextInt(cityNamesB.size()));
@@ -35,7 +36,9 @@ public class Scheduler {
 
     @Scheduled(cron = "${weather.schedule.cron.london.ms}")
     public void uploadLondonWeatherScheduleTask() {
-        uploadWeather("London");
+        uploadWeather("Santiago de Cali");
+        uploadWeather("Cape Town");
+        uploadWeather("Albuquerque");
     }
 
     private void uploadWeather(String city) {

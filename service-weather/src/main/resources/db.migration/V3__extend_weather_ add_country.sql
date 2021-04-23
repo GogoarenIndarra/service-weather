@@ -1,4 +1,4 @@
 ALTER TABLE weather
 ADD COLUMN country VARCHAR(250);
 ALTER TABLE weather
-ADD COLUMN  country_code VARCHAR(3);
+ADD COLUMN  countryCode VARCHAR(3);
