@@ -1,7 +1,15 @@
 # service description
 service provide weather for city from internal database if data are fresh otherwise fetch it from external service:
-api.openweathermap.
+api.openweathermap.  
 
+http://localhost:8080/api/weather/{enter_city_name}  
+http://localhost:8080/api/weather/topCity  
+http://localhost:8080/api/weather/topTen  
+http://localhost:8080/api/weather/saveCity  
+http://localhost:8080/api/weather/temperatureOverTenDegree   
+http://localhost:8080/api/weather/statistic/PL    
+http://localhost:8080/api/weather/getCities  
+  
 Service has REST controllers for getting weather, statistic, and  save records.
 
 
