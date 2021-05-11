@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(Parameterized.class)
@@ -20,16 +21,14 @@ class CustomStringConverterTest {
         assertEquals(outputStr, customStringConverter.stringConverterCity(inputStr));
     }
 
-        private static Stream input() {
-            return Stream.of(
-                    Arguments.of("london", "London"),
-                    Arguments.of("loNDON", "London"),
-                    Arguments.of("AmStErDaM", "Amsterdam"),
-                    Arguments.of("HELSINKI", "Helsinki"),
-                    Arguments.of("lUblin", "Lublin")
-            );
-        }
-
-
+    private static Stream input() {
+        return Stream.of(
+                Arguments.of("london", "London"),
+                Arguments.of("loNDON", "London"),
+                Arguments.of("AmStErDaM", "Amsterdam"),
+                Arguments.of("HELSINKI", "Helsinki"),
+                Arguments.of("lUblin", "Lublin")
+        );
+    }
 
 }
