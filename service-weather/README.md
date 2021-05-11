@@ -7,7 +7,6 @@ Service has REST controllers for getting weather, statistic, and  save records.
 
 Missing features:
 Deleting records (REST DELETE)
-Kafka messaging
 
 
 # learning resources
