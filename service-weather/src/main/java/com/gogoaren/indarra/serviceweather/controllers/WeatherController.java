@@ -23,7 +23,6 @@ import java.util.Set;
 @RestController
 @AllArgsConstructor
 @Slf4j
-@Component("Cache")
 public class WeatherController {
 
     WeatherService weatherService;

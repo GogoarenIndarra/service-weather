@@ -22,7 +22,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 @Service
-@Qualifier("Cache")
 @AllArgsConstructor
 @Slf4j
 public class WeatherServiceCacheImpl implements WeatherService {
