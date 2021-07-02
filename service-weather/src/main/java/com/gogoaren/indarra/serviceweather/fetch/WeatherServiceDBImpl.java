@@ -9,7 +9,9 @@ import com.gogoaren.indarra.serviceweather.kafka.KafkaMessageSender;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -18,9 +20,10 @@ import java.util.UUID;
 
 
 @Service
+@Component("Db")
 @AllArgsConstructor
 @Slf4j
-public class WeatherServiceImpl implements WeatherService {
+public class WeatherServiceDBImpl implements WeatherService {
 
     private final OpenWeatherFetcher openWeatherFetcher;
     private final OpenWeatherResponseConverter converter;
@@ -54,7 +57,7 @@ public class WeatherServiceImpl implements WeatherService {
         return weather;
     }
 
-    @Override
+
     public WeatherEntity getWeatherEntity(Weather weather) {
         return WeatherEntity.builder()
                 .uuid(UUID.randomUUID())
@@ -68,7 +71,7 @@ public class WeatherServiceImpl implements WeatherService {
                 .build();
     }
 
-    @Override
+
     public Weather getWeather(Optional<WeatherEntity> optionalWeatherEntity) {
         WeatherEntity weatherEntity = optionalWeatherEntity.get();
         return Weather.builder()
@@ -81,7 +84,7 @@ public class WeatherServiceImpl implements WeatherService {
                 .build();
     }
 
-    @Override
+
     public boolean isWeatherActual(WeatherEntity weatherEntity) {
 
         long time = weatherEntity.getCreated().toEpochMilli();
