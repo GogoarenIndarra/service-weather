@@ -26,13 +26,13 @@ public class KafkaMessageSender {
 
             @Override
             public void onSuccess(SendResult<String, Weather> result) {
-                System.out.println("Sent message=[" + weather +
+                log.info("Sent message=[" + weather +
                         "] with offset=[" + result.getRecordMetadata().offset() + "]");
             }
 
             @Override
             public void onFailure(Throwable ex) {
-                System.out.println("Unable to send message=["
+                log.error("Unable to send message=["
                         + weather + "] due to : " + ex.getMessage());
             }
         });

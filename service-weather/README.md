@@ -1,6 +1,13 @@
 # service description
-service provide weather for city from internal database if data are fresh otherwise fetch it from external service:
-api.openweathermap.  
+service provides weather for any city, fetched from api.openweathermap.
+
+In order to limit calls to external api, application can work in two modes:  
+ - cache mode - responses from api.openweathermap are stored in application cache.
+ - db mode - responses from api.openweathermap are stored in h2 db.
+
+Mode is selected via application properties:  
+  whether.service.implementation.type=cache / db
+
 
 http://localhost:8080/api/weather/{enter_city_name}  
 http://localhost:8080/api/weather/topCity  

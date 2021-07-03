@@ -9,10 +9,8 @@ import com.gogoaren.indarra.serviceweather.kafka.KafkaMessageSender;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -21,9 +19,9 @@ import java.util.UUID;
 
 
 @Service
-@Primary
 @AllArgsConstructor
 @Slf4j
+@ConditionalOnProperty(name = "whether.service.implementation.type", havingValue = "db")
 public class WeatherServiceDBImpl implements WeatherService {
 
     private final OpenWeatherFetcher openWeatherFetcher;
