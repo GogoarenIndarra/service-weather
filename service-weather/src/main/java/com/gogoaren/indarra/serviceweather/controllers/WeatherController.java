@@ -9,9 +9,7 @@ import com.gogoaren.indarra.serviceweather.fetch.WeatherStatisticService;
 import com.gogoaren.indarra.serviceweather.utils.CustomStringConverter;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;

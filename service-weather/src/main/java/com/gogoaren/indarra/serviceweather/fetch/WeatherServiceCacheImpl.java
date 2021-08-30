@@ -35,11 +35,11 @@ public class WeatherServiceCacheImpl implements WeatherService {
             log.info("weather from cache: " + city);
             return cacheWeatherMap.get(city);
         }
-        return getWeatherFromOenWeather(city);
+        return getWeatherFromOpenWeather(city);
 
     }
 
-    private Weather getWeatherFromOenWeather(String city) {
+    private Weather getWeatherFromOpenWeather(String city) {
         log.info("fetching weather for: " + city);
         OpenWeatherResponse openWeatherResponse = openWeatherFetcher.fetchWeatherByCityName(city);
         log.info("open weather response: " + openWeatherResponse);

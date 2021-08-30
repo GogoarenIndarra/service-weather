@@ -7,10 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-//@AutoConfigureWebTestClient(timeout = "20000")
+
 @SpringBootTest
 public class OpenWeatherFetcherTest {
 
@@ -27,19 +26,13 @@ public class OpenWeatherFetcherTest {
         OpenWeatherResponse openWeatherResponse = openWeatherFetcher.fetchWeatherByCityName("London");
         logger.info(openWeatherResponse.toString());
         assertTrue(true);
-//        assertTrue(openWeatherResponse.contains("Craig") ||
-//                joke.contains("Walls"));
-
     }
 
     @Test
     public void getWeatherByCityLocation() {
-        OpenWeatherResponse openWeatherResponse = openWeatherFetcher.fetchWeatherByCityLocation(23,56);
+        OpenWeatherResponse openWeatherResponse = openWeatherFetcher.fetchWeatherByCityLocation(23, 56);
         logger.info(openWeatherResponse.toString());
         assertTrue(true);
-//        assertTrue(openWeatherResponse.contains("Craig") ||
-//                joke.contains("Walls"));
-
     }
 
 }

@@ -45,6 +45,10 @@ public class WeatherServiceDBImpl implements WeatherService {
             log.info("weather from db: " + optionalWeatherEntity);
             return getWeather(optionalWeatherEntity);
         }
+        return geWeatherDBimpl(city);
+    }
+
+    private Weather geWeatherDBimpl(String city) {
         log.info("fetching weather for: " + city);
         OpenWeatherResponse openWeatherResponse = openWeatherFetcher.fetchWeatherByCityName(city);
         log.info("open weather response: " + openWeatherResponse);

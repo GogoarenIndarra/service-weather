@@ -40,7 +40,7 @@ public class WeatherStatisticServiceImplTest {
         final String city = "Rome";
         final BigDecimal expectedTemperature = new BigDecimal("33");
 
-        when(weatherEntityService.findTopWarmestCity(1)).thenReturn(List.of(TestUtils.creatWeatherEntity(city, expectedTemperature)));
+        when(weatherEntityService.findTopWarmestCity(1)).thenReturn(List.of(TestUtils.createWeatherEntity(city, expectedTemperature)));
 
         //when
         var warmestCityMap = weatherStatisticService.findWarmestCity();
@@ -55,7 +55,7 @@ public class WeatherStatisticServiceImplTest {
     public void shouldReturnTenSizeMapWhenTenTopWarmestCitiesProvided() {
         //given
         final String city = "Rome";
-        var listOfCities = IntStream.range(1, 11).mapToObj(i -> TestUtils.creatWeatherEntity(city + i, new BigDecimal(22 + i)))
+        var listOfCities = IntStream.range(1, 11).mapToObj(i -> TestUtils.createWeatherEntity(city + i, new BigDecimal(22 + i)))
                 .collect(Collectors.toList());
 
         when(weatherEntityService.findTopWarmestCity(10)).thenReturn(listOfCities);

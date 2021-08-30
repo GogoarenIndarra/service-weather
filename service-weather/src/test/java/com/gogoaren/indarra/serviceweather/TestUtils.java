@@ -1,14 +1,17 @@
 package com.gogoaren.indarra.serviceweather;
 
 import com.gogoaren.indarra.serviceweather.data.weather.WeatherEntity;
+import org.springframework.util.Assert;
 
 import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Instant;
 import java.util.UUID;
 
 public class TestUtils {
 
-    public static WeatherEntity creatWeatherEntity(final String cityName, BigDecimal temperature) {
+    public static WeatherEntity createWeatherEntity(final String cityName, BigDecimal temperature) {
         return WeatherEntity.builder()
                 .uuid(UUID.randomUUID())
                 .created(Instant.now())
@@ -17,6 +20,11 @@ public class TestUtils {
                 .temperature(temperature)
                 .wind(0.0)
                 .build();
+    }
+
+    public static String readFileAsString(String file) throws Exception {
+        Assert.notNull(file, "file does not exist");
+        return new String(Files.readAllBytes(Paths.get(file)));
     }
 
 

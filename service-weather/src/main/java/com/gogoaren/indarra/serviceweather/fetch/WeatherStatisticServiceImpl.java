@@ -21,7 +21,8 @@ public class WeatherStatisticServiceImpl implements WeatherStatisticService {
     @Override
     public Map<String, BigDecimal> findWarmestCity() {
 
-        return weatherEntityService.findTopWarmestCity(1).stream()
+        return weatherEntityService.findTopWarmestCity(1)
+                .stream()
                 .collect(Collectors.toMap(WeatherEntity::getCity, WeatherEntity::getTemperature));
     }
 
@@ -30,7 +31,6 @@ public class WeatherStatisticServiceImpl implements WeatherStatisticService {
 
         return weatherEntityService.findTopWarmestCity(10).stream()
                 .collect(Collectors.toMap(WeatherEntity::getCity, WeatherEntity::getTemperature));
-
     }
 
     @Override
@@ -59,8 +59,9 @@ public class WeatherStatisticServiceImpl implements WeatherStatisticService {
 
     public Map<String, List<WeatherEntity>> findCitiesFromAllCountries() {
 
-        return  weatherEntityService.selectAllForStreamPractice().stream().collect(Collectors.groupingBy(WeatherEntity::getCountry));
-
+        return  weatherEntityService.selectAllForStreamPractice()
+                .stream()
+                .collect(Collectors.groupingBy(WeatherEntity::getCountry));
     }
 
     @Override
